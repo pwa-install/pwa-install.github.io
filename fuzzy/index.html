@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://pwa-demo.github.io/fuzzy" />
+  <link rel="manifest" href="/fuzzy/manifest.json">
+  <title>Read Manifest</title>
+</head>
+
+<body>
+  <div id="manifest-content"></div>
+
+  <script>
+    fetch('/fuzzy/manifest.json', {
+      headers: {
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
+      }
+    })
+      .then(response => response.json())
+      .then(manifest => {
+        const manifestContent = document.getElementById('manifest-content');
+        manifestContent.innerHTML = `
+                <h1>Manifest Content</h1>
+                <p><strong>Name:</strong> ${manifest.name}</p>
+                <p><strong>Short Name:</strong> ${manifest.short_name}</p>
+                <p><strong>Scope:</strong> ${manifest.scope}</p>
+                <p><strong>Start URL:</strong> ${manifest.start_url}</p>
+                <p><strong>Background Color:</strong> ${manifest.background_color}</p>
+                <p><strong>Direction:</strong> ${manifest.dir}</p>
+                <p><strong>ID:</strong> ${manifest.id}</p>
+                <p><strong>Theme Color:</strong> ${manifest.theme_color}</p>
+                <p><strong>Display:</strong> ${manifest.display}</p>
+                <h2>Icons:</h2>
+                <ul>
+                    ${manifest.icons.map(icon => `<li>Src: ${icon.src}, Type: ${icon.type}, Sizes: ${icon.sizes}</li>`).join('')}
+                </ul>
+            `;
+      })
+      .catch(error => console.error('Error fetching manifest:', error));
+  </script>
+</body>
+
+</html>

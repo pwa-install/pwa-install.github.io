@@ -1,0 +1,18 @@
+{
+  "name": "TestName2",
+  "short_name": "DefaultShortName",
+  "scope": "/fuzzy/",
+  "start_url": "/fuzzy/",
+  "background_color": "#000000",
+  "dir": "DefaultDir",
+  "id": "DefaultID",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/fuzzy/images/pwa-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

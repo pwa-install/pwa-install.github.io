@@ -1,0 +1,21 @@
+{
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "192x192",
+      "type": "image/png",
+      "src": "//img1.wsimg.com/isteam/ip/6f80c80f-d4e5-4e62-9425-5a0c86247ec2/1%401%20productions_black%20background_3-0001.png/:/rs=w:192,h:192,m"
+    },
+    {
+      "sizes": "512x512",
+      "type": "image/png",
+      "src": "//img1.wsimg.com/isteam/ip/6f80c80f-d4e5-4e62-9425-5a0c86247ec2/1%401%20productions_black%20background_3-0001.png/:/rs=w:512,h:512,m"
+    }
+  ],
+  "name": "1@1 Productions",
+  "short_name": "1@1 Productions",
+  "theme_color": "#ce0067",
+  "background_color": "#ce0067"
+}

@@ -1,0 +1,35 @@
+{
+  "scope": "https://1acre-farm.com/",
+  "start_url": "https://1acre-farm.com/",
+  "display": "standalone",
+  "lang": "en-US",
+  "dir": "adf",
+  "icons": [
+    {
+      "sizes": "192x192",
+      "type": "image/png",
+      "src": "//img1.wsimg.com/isteam/ip/bdf99048-b38d-4e9a-8385-61da4e50c48e/One%20acre%20farm.jpg/:/rs=w:192,h:192,m"
+    },
+    {
+      "sizes": "512x512",
+      "type": "image/png",
+      "src": "//img1.wsimg.com/isteam/ip/bdf99048-b38d-4e9a-8385-61da4e50c48e/One%20acre%20farm.jpg/:/rs=w:512,h:512,m"
+    }
+  ],
+  "name": "1 Acre Farm",
+  "short_name": "1 Acre Farm",
+  "theme_color": "#C9CA41",
+  "background_color": "#C9CA41",
+  "orientation": "portrait",
+  "id": "?id=1124",
+  "shortcuts": [
+    {
+      "name": "Contact Us",
+      "url": "https://1acre-farm.com/contact-us"
+    },
+    {
+      "name": "Our Products",
+      "url": "https://1acre-farm.com/our-products"
+    }
+  ]
+}

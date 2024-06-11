@@ -1,0 +1,21 @@
+{
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "192x192",
+      "type": "image/png",
+      "src": "//img1.wsimg.com/isteam/ip/8d978a2d-4f88-43bb-b6fb-ef98ffe9a720/1AWEBS%20LOGO%20WH%20WH%202020.png/:/rs=w:192,h:192,m"
+    },
+    {
+      "sizes": "512x512",
+      "type": "image/png",
+      "src": "//img1.wsimg.com/isteam/ip/8d978a2d-4f88-43bb-b6fb-ef98ffe9a720/1AWEBS%20LOGO%20WH%20WH%202020.png/:/rs=w:512,h:512,m"
+    }
+  ],
+  "name": "Advertising + Social Media, Smart and Easy!",
+  "short_name": "Advertising + Social Media, Smart and Easy!",
+  "theme_color": "#68c8e3",
+  "background_color": "#68c8e3"
+}
