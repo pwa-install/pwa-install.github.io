@@ -1,0 +1,3 @@
+{'standalone': 262275, 'minimal-ui': 12715, 'fullscreen': 3981, 'browser': 77, '#ffffff': 4, 'broeser': 1, '': 1})
+
+{'browser': 77, '#ffffff': 4, 'broeser': 1, '': 1})

@@ -1,3 +1,45 @@
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+  - [Security Risk](#security-risk)
+  - [Data Collections](#data-collections)
+  - [Fuzzer Program Guide](#fuzzer-program-guide)
+    - [Introduction](#introduction)
+    - [How to Run the Program](#how-to-run-the-program)
+    - [Program Parameters and Configuration](#program-parameters-and-configuration)
+    - [Modifying Fields](#modifying-fields)
+    - [Script Workflow](#script-workflow)
+    - [Observing Results](#observing-results)
+  - [Experiment PWA](#experiment-pwa)
+    - [Download Browsers](#download-browsers)
+    - [Redirect to 3party with no origin show](#redirect-to-3party-with-no-origin-show)
+    - [Manifest Update experiment](#manifest-update-experiment)
+    - [Popup overlap experiment](#popup-overlap-experiment)
+    - [Service Worker Cache-only Example](#service-worker-cache-only-example)
+    - [Overview](#overview)
+    - [How to Use](#how-to-use)
+      - [Step 1: Prepare Your Manifests](#step-1-prepare-your-manifests)
+      - [Step 2: Run the Analysis](#step-2-run-the-analysis)
+      - [Step 3: Review the Output](#step-3-review-the-output)
+      - [Example output:](#example-output)
+      - [Recommendations](#recommendations)
+  - [GuardianPWA-User](#guardianpwa-user)
+    - [Overview](#overview-1)
+  - [How to Install](#how-to-install)
+    - [Step 1: Prepare the Extension](#step-1-prepare-the-extension)
+    - [Step 2: Install the Extension in Chrome](#step-2-install-the-extension-in-chrome)
+  - [How to Use](#how-to-use-1)
+    - [Step 1: Visit a PWA](#step-1-visit-a-pwa)
+    - [Step 2: Activate the Extension](#step-2-activate-the-extension)
+    - [Step 3: Review Warnings and Manifest](#step-3-review-warnings-and-manifest)
+  - [Responsible Disclosure](#responsible-disclosure)
+  - [Contact](#contact)
+  - [Acknowledge](#acknowledge)
+## Security Risk
+- Please check Sec-risk.md for details
+
+## Data Collections
+Refer to the `analysis` directory for scripts and instructions on collecting data related to Progressive Web Apps (PWAs). 
+
 ## Fuzzer Program Guide
 
 ### Introduction
@@ -64,7 +106,36 @@ Manually install the PWA on different platforms (iOS, Android, desktop browsers)
 
 Feel free to customize the fields and parameters to suit your testing needs. 
 
-## GuardianPWA-Developer
+## Experiment PWA
+### Download Browsers
+- Visit [Prepare](https://pwa-install.github.io/prepare)
+### Redirect to 3party with no origin show
+Check below link
+- [pwa-install.github.io/redirect1](https://pwa-install.github.io/redirect1)
+- [pwa-install.github.io/redirect2](https://pwa-install.github.io/redirect2)
+- - [pwa-install.github.io/redirect3](https://pwa-install.github.io/redirect3)
+- [pwa-install.github.io/redirect4](https://pwa-install.github.io/redirect4)
+- [pwa-install.github.io/redirect5](https://pwa-install.github.io/redirect5)
+
+### Manifest Update experiment
+Check below link for the experiment on manifest update:
+- [pwa-install.github.io/manifest-display](https://pwa-install.github.io/manifest-display)
+- [pwa-install.github.io/manifest-icon](https://pwa-install.github.io/manifest-icon)
+- [pwa-install.github.io/manifest-name](https://pwa-install.github.io/manifest-name)
+- [pwa-install.github.io/manifest-scope](https://pwa-install.github.io/manifest-scope)
+- [pwa-install.github.io/manifest-url](https://pwa-install.github.io/manifest-url)
+- [pwa-install.github.io/manifest-theme](https://pwa-install.github.io/manifest-theme)
+
+### Popup overlap experiment
+Check below link for the experiment on popup overlap:
+- [pwa-install.github.io/alert](https://pwa-install.github.io/alert)
+- [pwa-install.github.io/modal](https://pwa-install.github.io/modal)
+- [pwa-install.github.io/popover](https://pwa-install.github.io/popover)
+- [pwa-install.github.io/popup](https://pwa-install.github.io/popup)
+- [pwa-install.github.io/tooltip](https://pwa-install.github.io/tooltip)
+
+### Service Worker Cache-only Example
+Please vist [pwa-install.github.io/cache-only](https://pwa-install.github.io/cache-only) for the service worker cache-only example.
 
 ### Overview
 GuardianPWA-Developer is a tool designed to analyze and identify issues in the manifests of Progressive Web Apps (PWAs). It evaluates the manifest files placed in the `files2analyze` directory and provides recommendations for correcting any issues found.
@@ -124,10 +195,22 @@ Click on the GuardianPWA-User extension icon in the Chrome toolbar.
 The extension will analyze the current PWA and display warnings if there are issues such as:
 - `start_url` or `scope` not matching the current PWA.
 - Problems with the `name` field.
-  
-It will also print the entire manifest and provide the current URL to help you ensure you are not being phished.
 
+
+## Responsible Disclosure
+We have disclosed selected security risks to browser vendors. We will hide these urls because of the anonymous policy. If you need the full list, please contact the project maintainer.
+
+- Chrome has acknowledged the security risks that we proposed and doubt that they will fix it in the future.
+- Firefox has acknowledged the security risks that we proposed and fix two of them and still working on the rest.
+- Samsung Internet implies that they are intended behaviors and won't fix them.
+- Brave are waiting for Chrome's action.
+- Other browsers have not responded yet.
 
 
 ## Contact
+Because of the limited space, we can't put all the experiment setup and results in this repository.
+If you need more experiment setup or results, please contact the project maintainer.
 For any questions or support, please contact the project maintainer or make a PR.
+
+## Acknowledge
+Thanks to [Thomas Steiner](https://github.com/google/service-worker-detector), [Petr Gajdosik](https://github.com/Tarasa24/PWA-Store/blob/master/ManifestCrawler)!

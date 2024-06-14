@@ -1,0 +1,1 @@
+{'portrait': 41829, 'portrait-primary': 2001, 'any': 7466, 'natural': 466, 'landscape': 242, '': 10, 'landscape-primary': 19, 'ltr': 1, 'fullScreen': 1, 'Portrait-primary': 1, 'Any': 1, 'browser': 1, 'none': 2, 'undefined': 6, 'auto': 2, 'fullscreen': 2, 'None': 1, 'neutral': 1, 'potrait': 1}

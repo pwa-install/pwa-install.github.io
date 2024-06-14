@@ -1,0 +1,1 @@
+{'ltr': 16129, 'rtl': 1045, 'auto': 3091, 'LTR': 322, 'RTL': 12, 'None': 2, 'automatisch': 1, '': 2, 'lfr': 1, '/': 1}
