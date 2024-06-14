@@ -1,3 +1,6 @@
+## Security Risk
+- Please check Sec-risk.md for details
+
 ## Fuzzer Program Guide
 
 ### Introduction
@@ -64,6 +67,17 @@ Manually install the PWA on different platforms (iOS, Android, desktop browsers)
 
 Feel free to customize the fields and parameters to suit your testing needs. 
 
+## Experiment PWA
+### Download Browsers
+- Visit [Prepare](https://pwa-install.github.io/prepare)
+### Redirect to 3party with no origin show
+Check below link
+- [pwa-install.github.io/redirect1](https://pwa-install.github.io/redirect1)
+- [pwa-install.github.io/redirect2](https://pwa-install.github.io/redirect2)
+- - [pwa-install.github.io/redirect3](https://pwa-install.github.io/redirect3)
+- [pwa-install.github.io/redirect4](https://pwa-install.github.io/redirect4)
+- [pwa-install.github.io/redirect5](https://pwa-install.github.io/redirect5)
+
 ## GuardianPWA-Developer
 
 ### Overview
@@ -124,10 +138,11 @@ Click on the GuardianPWA-User extension icon in the Chrome toolbar.
 The extension will analyze the current PWA and display warnings if there are issues such as:
 - `start_url` or `scope` not matching the current PWA.
 - Problems with the `name` field.
-  
-It will also print the entire manifest and provide the current URL to help you ensure you are not being phished.
 
 
 
 ## Contact
 For any questions or support, please contact the project maintainer or make a PR.
+
+## Acknowledge
+Thanks to [Thomas Steiner](https://github.com/google/service-worker-detector), [Petr Gajdosik](https://github.com/Tarasa24/PWA-Store/blob/master/ManifestCrawler)!
