@@ -1,0 +1,17 @@
+{
+  "name": "",
+  "short_name": "",
+  "scope": "/noname/",
+  "start_url": "/noname/",
+  "background_color": "#000000",
+  "id": "",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/noname/images/pwa-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
