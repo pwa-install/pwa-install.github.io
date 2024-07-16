@@ -205,6 +205,7 @@ We have disclosed selected security risks to browser vendors. We will hide these
 - Samsung Internet implies that they are intended behaviors and won't fix them.
 - Brave are waiting for Chrome's action.
 - Other browsers have not responded yet.
+For the browsers that we tested, we use Safari (Safari 17), Chrome (117), Firefox (118), Edge (117), Samsung Internet (22), Opera (77), Brave (1).
 
 
 ## Contact
