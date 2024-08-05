@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="canonical" href="https://pwa-demo.github.io/exp" />
+  <link rel="manifest" href="/exp/manifest.json">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+  h1>Welcome to Site B</h1>
+  <div id="log"></div>
+
+
+  <script>
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register(
+        '/exp/sw.js',
+        { scope: '/exp/' }
+      )
+    }
+    function logMessage(message) {
+      const logDiv = document.getElementById('log');
+      const logEntry = document.createElement('div');
+      logEntry.textContent = message;
+      logDiv.appendChild(logEntry);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.hasStorageAccess().then(hasAccess => {
+        if (hasAccess) {
+          logMessage('This document has storage access.');
+          // 可以进行存储相关操作
+          accessStorage();
+        } else {
+          logMessage('This document does not have storage access.');
+          // 存储操作可能受限，需要请求存储访问权限
+          requestStorageAccess();
+        }
+      });
+    });
+
+    function requestStorageAccess() {
+      document.requestStorageAccess().then(() => {
+        // 存储访问权限已获得
+        logMessage('Storage access granted.');
+        // 现在可以进行存储操作
+        accessStorage();
+      }).catch(() => {
+        // 存储访问权限被拒绝
+        logMessage('Storage access denied.');
+        // 提示用户或采取其他措施
+      });
+    }
+
+    function accessStorage() {
+      // 进行存储操作的函数，例如读取或写入 localStorage
+      localStorage.setItem('user', 'JohnDoe');
+      localStorage.setItem('theme', 'dark');
+
+      // 读取 localStorage
+      const user = localStorage.getItem('user');
+      const theme = localStorage.getItem('theme');
+
+      logMessage('User: ' + user); // 输出: User: JohnDoe
+      logMessage('Theme: ' + theme); // 输出: Theme: dark
+
+      // 删除 localStorage 项目
+      localStorage.removeItem('theme');
+
+      // 设置 cookie
+      setCookie('user', 'JohnDoe', 7);
+      setCookie('theme', 'dark', 7);
+
+      // 读取 cookie
+      const cookieUser = getCookie('user');
+      const cookieTheme = getCookie('theme');
+
+      logMessage('Cookie User: ' + cookieUser); // 输出: Cookie User: JohnDoe
+      logMessage('Cookie Theme: ' + cookieTheme); // 输出: Cookie Theme: dark
+
+      // 删除 cookie
+      eraseCookie('theme');
+    }
+
+    function setCookie(name, value, days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      const expires = "expires=" + date.toUTCString();
+      document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    function getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    function eraseCookie(name) {
+      document.cookie = name + '=; Max-Age=-99999999;';
+    }
+
+
+  </script>
+
+</body>
+
+</html>
