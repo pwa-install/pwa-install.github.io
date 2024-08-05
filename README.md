@@ -207,6 +207,9 @@ We have disclosed selected security risks to browser vendors. We will hide these
 - Other browsers have not responded yet.
 
 
+For the browsers that we tested, we use Safari (Safari 17), Chrome (117), Firefox (118), Edge (117), Samsung Internet (22), Opera (77), Brave (1).
+
+
 ## Contact
 Because of the limited space, we can't put all the experiment setup and results in this repository.
 If you need more experiment setup or results, please contact the project maintainer.
