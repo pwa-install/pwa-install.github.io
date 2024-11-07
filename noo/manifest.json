@@ -14,7 +14,7 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "https://www.starbucks.com/next_static/icons/pwa-icon-512.png",
+      "src": "/exp/images/pwa-icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -39,7 +39,7 @@
     {
       "name": "PLUS",
       "url": "/noo/",
-      "icon": "https://www.starbucks.com/next_static/icons/pwa-icon-512.png"
+      "icon": "/exp/images/pwa-icon-512.png"
     }
   ]
 }
