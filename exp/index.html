@@ -18,7 +18,7 @@
   <script>
     // 接收来自 siteA 的消息
     window.addEventListener('message', event => {
-      if (event.origin === 'https://pwa-demo.github.io/api/') {
+      if (event.origin === 'https://pwa-install.github.io/api/') {
         logMessage('Message from Site A: ' + event.data);
         // 发送消息回 siteA
         event.source.postMessage('Hello from Site B', event.origin);
