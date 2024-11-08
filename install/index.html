@@ -48,7 +48,7 @@
   });
 
   // 监听 beforeinstallprompt
-  let deferredPrompt;
+  // Remove the duplicate declaration of 'deferredPrompt'
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
