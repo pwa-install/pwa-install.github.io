@@ -26,6 +26,44 @@
     }
   </style>
 </head>
+<h1>PWA Mini-Infobar Detector</h1>
+<div id="statusMessage">等待检测...</div>
+
+<script>
+  // 初始窗口高度
+  let previousHeight = window.innerHeight;
+
+  // 监听窗口大小变化
+  window.addEventListener('resize', () => {
+    const currentHeight = window.innerHeight;
+    if (currentHeight < previousHeight) {
+      console.log('Mini-infobar可能已经出现');
+      const statusMessage = document.getElementById('statusMessage');
+      statusMessage.textContent = '检测到mini-infobar显示！';
+    } else {
+      const statusMessage = document.getElementById('statusMessage');
+      statusMessage.textContent = 'Mini-infobar未出现。';
+    }
+    previousHeight = currentHeight;
+  });
+
+  // 监听 beforeinstallprompt
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    console.log('捕获到 beforeinstallprompt 事件');
+    const statusMessage = document.getElementById('statusMessage');
+    statusMessage.textContent = '捕获到 beforeinstallprompt 事件，可以触发安装。';
+  });
+
+  // 监听安装完成事件
+  window.addEventListener('appinstalled', () => {
+    console.log('PWA 已安装');
+    const statusMessage = document.getElementById('statusMessage');
+    statusMessage.textContent = 'PWA 已成功安装！';
+  });
+</script>
 
 <body>
   <h1>
