@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="canonical" href="https://pwa-install.github.io/screen" />
+  <link rel="manifest" href="/screen/manifest.json">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    img {
+      max-width: 100%;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Automatic Screenshot Example</h1>
+  <p>This page will capture a screenshot of your screen and display the result after 10 seconds.</p>
+  <p>Please grant screen-sharing permissions in your browser.</p>
+
+  <div id="status">Waiting to capture screenshot...</div>
+  <img id="screenshot" alt="Screenshot will appear here">
+
+  <script>
+    // Register Service Worker (original logic preserved)
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('/screen/sw.js', { scope: '/screen/' });
+    }
+
+    // Screen capture logic
+    async function captureScreen() {
+      const statusDiv = document.getElementById('status');
+      try {
+        // Request screen-sharing permissions
+        const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+        const video = document.createElement('video');
+        video.srcObject = stream;
+
+        // Wait for the video to load
+        await new Promise((resolve) => {
+          video.onloadedmetadata = () => {
+            video.play();
+            resolve();
+          };
+        });
+
+        // Capture screenshot after 10 seconds
+        setTimeout(() => {
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+
+          // Draw the video frame onto the canvas
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+          // Display the screenshot
+          const img = document.getElementById('screenshot');
+          img.src = canvas.toDataURL('image/png');
+          statusDiv.textContent = 'Screenshot captured successfully!';
+
+          // Stop screen sharing
+          stream.getTracks().forEach(track => track.stop());
+        }, 10000); // 10 seconds
+      } catch (error) {
+        statusDiv.textContent = 'Failed to capture screenshot. Please ensure you grant screen-sharing permissions.';
+        console.error('Screen capture error:', error);
+      }
+    }
+
+    // Start screen capture
+    captureScreen();
+  </script>
+
+</body>
+
+</html>
