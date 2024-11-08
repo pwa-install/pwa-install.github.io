@@ -53,6 +53,8 @@
     e.preventDefault();
     deferredPrompt = e;
     console.log('捕获到 beforeinstallprompt 事件');
+    // write it to dom
+    document.getElementById('statusMessage').textContent = '捕获到 beforeinstallprompt 事件';
     const statusMessage = document.getElementById('statusMessage');
     statusMessage.textContent = '捕获到 beforeinstallprompt 事件，可以触发安装。';
   });
