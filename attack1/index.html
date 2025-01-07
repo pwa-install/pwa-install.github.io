@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="canonical" href="https://pwa-install.github.io/attack1" />
+  <link rel="manifest" href="/attack1/manifest.json">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+  <script>
+    const queryParams = new URLSearchParams(window.location.search);
+
+    // 检查是否有 "redirect" 这个查询参数
+    const redirectUrl = queryParams.get('redirect');
+    if (redirectUrl) {
+      // 执行重定向
+      window.location.href = 'https://' + redirectUrl;
+    }
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register(
+        '/attack1/sw.js',
+        { scope: '/attack1/' }
+      )
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>
