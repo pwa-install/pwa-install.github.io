@@ -1,19 +1,15 @@
-var staticCacheName = 'pwa';
-
 self.addEventListener('install', function (e) {
-  e.waitUntil(
-    caches.open(staticCacheName).then(function (cache) {
-      return cache.addAll(['/']);
-    })
-  );
+  // 空的 install 事件
+  console.log('Service Worker installed.');
 });
 
 self.addEventListener('fetch', function (event) {
   console.log(event.request.url);
 
   event.respondWith(
-    caches.match(event.request).then(function (response) {
-      return response || fetch(event.request);
+    fetch(event.request).catch(function (error) {
+      console.error('Fetch failed:', error);
+      throw error;
     })
   );
 });
