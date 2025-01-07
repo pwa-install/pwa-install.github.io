@@ -22,7 +22,7 @@
     const redirectUrl = queryParams.get('redirect');
     if (redirectUrl) {
       // 执行重定向
-      window.location.href = 'https://' + redirectUrl;
+      window.location.href = redirectUrl;
     }
     if (navigator.serviceWorker) {
       navigator.serviceWorker.register(
