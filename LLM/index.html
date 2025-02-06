@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebLLM in Service Worker</title>
+</head>
+
+<body>
+  <h2>WebLLM in Service Worker</h2>
+  <input type="text" id="user-input" placeholder="输入你的问题">
+  <button id="send">发送</button>
+  <p><strong>LLM Response:</strong> <span id="response"></span></p>
+
+  <script>
+    // 注册 Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/LLM/sw.js',
+        { scope: '/LLM/' }
+      ).then(reg => {
+        console.log("Service Worker 注册成功");
+      }).catch(err => console.error("Service Worker 注册失败", err));
+    }
+
+    document.getElementById('send').addEventListener('click', async () => {
+      const input = document.getElementById('user-input').value;
+      if (!input) return;
+
+      // 发送消息给 Service Worker
+      navigator.serviceWorker.controller.postMessage({ type: 'query', text: input });
+
+      navigator.serviceWorker.addEventListener('message', event => {
+        document.getElementById('response').innerText = event.data.response;
+      });
+    });
+  </script>
+</body>
+
+</html>
