@@ -1,27 +1,22 @@
-importScripts('https://cdn.jsdelivr.net/npm/web-llm'); // 导入 WebLLM
+import { ServiceWorkerMLCEngineHandler } from 'https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm';
 
-let model;
-
-// 初始化 WebLLM
-async function loadLLM() {
-  model = await webllm.load_model('TinyLlama');
-  console.log('WebLLM 模型加载完成');
-}
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(loadLLM());
-  self.skipWaiting();
-});
+let handler;
 
 self.addEventListener('activate', (event) => {
+  handler = new ServiceWorkerMLCEngineHandler();
   console.log('Service Worker 已激活');
 });
 
 self.addEventListener('message', async (event) => {
-  if (!model) return;
+  if (!handler) return;
 
   if (event.data.type === 'query') {
-    const response = await model.generate(event.data.text);
-    event.source.postMessage({ response });
+    try {
+      const response = await handler.handle(event.data.text);
+      event.source.postMessage({ response });
+    } catch (error) {
+      console.error('WebLLM 处理错误:', error);
+      event.source.postMessage({ error: '处理失败' });
+    }
   }
 });
